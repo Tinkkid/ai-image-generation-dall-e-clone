@@ -7,7 +7,13 @@ dotenv.config();
 const router = express.Router();
 
 const configuration = new Configuration({
-   apiKey: process.env,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
-const openai = new OpneAIApi(configuration);
+const openai = new OpenAIApi(configuration);
+
+router.route('/').get((req, res) => {
+  res.status(200).json({ message: 'Hello from DALL-E!' });
+});
+
+export default router;
