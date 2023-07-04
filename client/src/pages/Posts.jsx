@@ -64,10 +64,10 @@ const Posts = () => {
         );
 
         await response.json();
-       Notify.info('Success');
-        navigate('/');
+        Notify.success("Success");
+        navigate("/");
       } catch (err) {
-        console.log(err);
+       console.log(err)
       } finally {
         setLoading(false);
       }
@@ -75,6 +75,8 @@ const Posts = () => {
       Notify.info('Please generate an image with proper details');
     }
   };
+
+
 
    const handleChange = (e) => {
      setForm({...form, [e.target.name]:e.target.value})
