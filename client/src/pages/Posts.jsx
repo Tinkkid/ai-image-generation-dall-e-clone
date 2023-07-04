@@ -1,6 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
@@ -16,9 +17,56 @@ const Posts = () => {
   const [generateImg, setGenerateImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const generateImage = () => {};
+  const generateImage = async() => {
+    if(form.prompt) {
+      try {
+        setGenerateImg(true)
+        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+          method: 'POST',
+          headers: {
+            'Content-Type':'application/json',
+          },
+          body: JSON.stringify({prompt:form.prompt}),
+        })
 
-  const handleSubmit = () => {};
+        const data = await response.json();
+        setForm({...form, photo:`data:image/jpeg;base64,${data.photo}`})
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setGenerateImg(false)
+      }
+    } else {
+      Notify.info('Please enter a prompt');
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (form.prompt && form.photo) {
+      setLoading(true);
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...form }),
+        });
+
+        await response.json();
+       Notify.info('Success');
+        navigate('/');
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      Notify.info('Please generate an image with proper details');
+    }
+  };
 
    const handleChange = (e) => {
      setForm({...form, [e.target.name]:e.target.value})
