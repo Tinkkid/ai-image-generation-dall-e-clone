@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
+
+
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
 import { FormField, Loader } from "../components";
@@ -45,7 +48,7 @@ const Posts = () => {
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
        
-        alert(err);
+        console.log(err);
       } finally {
         setGeneratingImg(false);
       }
@@ -74,7 +77,7 @@ const Posts = () => {
 
         await response.json();
      
-        alert("Success");
+        Notify.success("Success share");
         navigate("/");
       } catch (err) {
      
@@ -83,12 +86,11 @@ const Posts = () => {
         setLoading(false);
       }
     } else {
-     
-
-      alert("Please generate an image with proper details");
+      Notify.warning("Please generate an image with proper details");
     }
   };
 
+  
   return (
     <section className="max-w-7xl mx-auto">
       <div>
