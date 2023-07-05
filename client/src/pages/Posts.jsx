@@ -74,6 +74,7 @@ const Posts = () => {
             body: JSON.stringify({ ...form }),
           }
         );
+        console.log(response)
 
         await response.json();
      
