@@ -29,7 +29,7 @@ const Posts = () => {
       try {
         setGeneratingImg(true);
         const response = await fetch(
-          "https://dalle-2-0-y7c7.onrender.com/api/v1/dalle",
+          "https://dalle-cc2a.onrender.com/api/v1/dalle",
           {
             method: "POST",
             headers: {
@@ -62,7 +62,7 @@ const Posts = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://dalle-2-0-y7c7.onrender.com/api/v1/post",
+          "https://dalle-cc2a.onrender.com/api/v1/post",
           {
             method: "POST",
             headers: {
