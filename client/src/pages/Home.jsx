@@ -27,7 +27,7 @@ const Home = () => {
 
       try {
         const response = await fetch(
-          "https://dalle-cc2a.onrender.com/api/v1/post",
+          "https://doubtful-cardigan-bull.cyclic.app/api/v1/post",
           {
             method: "GET",
             headers: {
