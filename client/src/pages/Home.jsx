@@ -30,9 +30,7 @@ const Home = () => {
           "https://doubtful-cardigan-bull.cyclic.app/api/v1/post",
           {
             method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            
           }
         );
         console.log(response);

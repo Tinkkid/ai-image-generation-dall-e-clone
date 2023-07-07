@@ -68,9 +68,7 @@ const Posts = () => {
           "https://doubtful-cardigan-bull.cyclic.app/api/v1/post",
           {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            
             body: JSON.stringify({ ...form }),
           }
         );

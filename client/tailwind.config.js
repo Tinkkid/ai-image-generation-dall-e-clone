@@ -2,6 +2,7 @@
 
 export default {
   content: ["./src/**/*.{js,jsx}"],
+  darkMode: "className",
   theme: {
     extend: {
       screens: {
