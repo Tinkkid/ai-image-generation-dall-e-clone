@@ -35,6 +35,7 @@ const Posts = () => {
           "https://doubtful-cardigan-bull.cyclic.app/api/v1/dalle",
           {
             method: "POST",
+            mode: 'no-cors',
             headers: {
               "Content-Type": "application/json",
             },

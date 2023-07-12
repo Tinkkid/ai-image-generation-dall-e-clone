@@ -30,6 +30,7 @@ const Home = () => {
           "https://doubtful-cardigan-bull.cyclic.app/api/v1/post",
           {
             method: "GET",
+            mode: 'no-cors'
             
           }
         );
