@@ -35,7 +35,6 @@ const Posts = () => {
           "https://doubtful-cardigan-bull.cyclic.app/api/v1/dalle",
           {
             method: "POST",
-            mode: 'no-cors',
             headers: {
               "Content-Type": "application/json",
             },
@@ -65,12 +64,18 @@ const Posts = () => {
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
+
+        const headers = {'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'}
+
         const response = await fetch(
           "https://doubtful-cardigan-bull.cyclic.app/api/v1/post",
           {
             method: "POST",
             
             body: JSON.stringify({ ...form }),
+            headers: headers,
           }
         );
         console.log(response)
