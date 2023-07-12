@@ -28,7 +28,7 @@ const FormField = ({labelName, type, name, placeholder, value, handleChange, isS
         onChange={handleChange}
         placeholder={placeholder}
         required
-        className="bg-gray-50 dark:bg-[#2A2C36] border border-gray-300 dark:border-b-[#FAFAFA] text-gray-900 text-sm rouded-lg focus:ring-[#4649ff] focus:border-[#4649ff] dark:focus:ring-[#8BAA36] dark:focus:border-[#8BAA36] outline-none block w-full p-3"
+        className="bg-gray-50 dark:bg-[#2A2C36] border border-gray-300 dark:border-b-[#FAFAFA] text-gray-900 dark:text-[#FAFAFA] text-sm rouded-lg focus:ring-[#4649ff] focus:border-[#4649ff] dark:focus:ring-[#8BAA36] dark:focus:border-[#8BAA36] outline-none block w-full p-3"
       />
     </div>
   );
